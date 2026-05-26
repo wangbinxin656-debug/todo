@@ -1,0 +1,25 @@
+name: Build APK
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Buildozer
+        run: |
+          sudo apt update
+          sudo apt install -y python3-pip python3-setuptools
+          pip3 install buildozer cython
+          sudo apt install -y autoconf automake libtool libffi-dev
+      - name: Build APK
+        run: buildozer android debug
+      - name: Upload APK
+        uses: actions/upload-artifact@v3
+        with:
+          name: mytodo-apk
+          path: bin/*.apk
