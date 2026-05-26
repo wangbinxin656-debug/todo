@@ -1,0 +1,20 @@
+[app]
+title = My Todo
+package.name = mytodo
+package.domain = org.example
+source.dir = .
+source.include_exts = py,png,jpg,kv,atlas
+version = 1.0
+requirements = python3,kivy,kivymd,sqlite3
+orientation = portrait
+osx.python_version = 3
+fullscreen = 0
+android.permissions = INTERNET
+android.api = 31
+android.minapi = 21
+android.ndk = 23b
+android.sdk = 30
+android.gradle_dependencies = 
+android.arch = armeabi-v7a
+android.allow_backup = True
+android.logcat_filters = *:S python:D
